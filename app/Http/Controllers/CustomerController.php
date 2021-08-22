@@ -22,6 +22,4 @@ class CustomerController extends Controller
     {
         $this->customerRepository->save($request->all());
     }
-
-
 }

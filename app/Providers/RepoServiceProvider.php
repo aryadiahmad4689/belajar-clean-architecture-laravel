@@ -15,9 +15,7 @@ class RepoServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app::bind(
-            CustomerRepository::class,
-            CustomerRepositoryImplement::class);
+        $this->app->bind(CustomerRepository::class,CustomerRepositoryImplement::class);
     }
 
     /**
