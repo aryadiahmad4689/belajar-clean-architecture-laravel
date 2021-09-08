@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Repository\CustomerRepository;
 use App\Repository\CustomerRepositoryImplement;
+use App\Service\CustomerServiceImplement;
+use App\Service\CustomerService;
 use Illuminate\Support\ServiceProvider;
 
 class RepoServiceProvider extends ServiceProvider
@@ -16,6 +18,7 @@ class RepoServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(CustomerRepository::class,CustomerRepositoryImplement::class);
+        $this->app->bind(CustomerService::class,CustomerServiceImplement::class);
     }
 
     /**

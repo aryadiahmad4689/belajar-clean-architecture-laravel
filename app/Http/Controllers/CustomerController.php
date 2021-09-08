@@ -3,23 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Repository\CustomerRepository;
+use App\Service\CustomerService;
 
 class CustomerController extends Controller
 {
-    protected $customerRepository;
-    public function __construct(CustomerRepository $customerRepository)
+    protected $customerService;
+    public function __construct(CustomerService $customerService)
     {
-        $this->customerRepository = $customerRepository;
+        $this->customerService = $customerService;
     }
 
     public function index()
     {
-        $this->customerRepository->findAll();
+        $this->customerService->getCustomer();
     }
 
     public function store(Request $request)
     {
-        $this->customerRepository->save($request->all());
+        $this->customerService->addCustomer($request->all());
+        return response()->json("success create data");
     }
 }

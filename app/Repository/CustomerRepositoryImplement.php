@@ -8,10 +8,7 @@ class CustomerRepositoryImplement implements CustomerRepository
 {
     public function save($data)
     {
-        $customer = new Customer();
-
-        $customer->create($customer);
-
+        $customer = Customer::create($data);
         return $customer;
     }
     public function findById(int $id)
